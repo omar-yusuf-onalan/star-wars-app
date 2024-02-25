@@ -5,3 +5,22 @@
     gap: 50px;
     flex-wrap: wrap;
 }
+
+.starships-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.filter-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.starships-buttons {
+    display: flex;
+    justify-content: center;
+}
