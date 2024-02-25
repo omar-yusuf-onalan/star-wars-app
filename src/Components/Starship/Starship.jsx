@@ -3,7 +3,7 @@ import "./Starship.style.css";
 
 const Starship = ({ selectedStarship, setSelectedStarship }) => {
     return (
-        <>
+        <div className="starship-component">
             <Link to={"/"}>Return to main page</Link>
             <div className="single-starship">
                 <h1>{selectedStarship.name}</h1>
@@ -20,7 +20,7 @@ const Starship = ({ selectedStarship, setSelectedStarship }) => {
                 <div>Crew: {selectedStarship.crew} </div>
                 <div>Cargo Capacity: {selectedStarship.cargo_capacity}</div>
             </div>
-        </>
+        </div>
     );
 };
 
