@@ -6,6 +6,7 @@ import StarshipWithLessDetail from "../StarshipWithLessDetail.jsx/StarshipWithLe
 const Starships = ({ setSelectedStarship }) => {
     const [starships, setStarships] = useState([]);
     const [page, setPage] = useState(1);
+    const [searchInput, setSearchInput] = useState("");
 
     useEffect(() => {
         getStarships(page).then((data) => setStarships(data.results));
@@ -16,18 +17,18 @@ const Starships = ({ setSelectedStarship }) => {
     };
 
     const handleFilter = () => {
-        const userInput = document.querySelector("#name-model-input").value;
-
-        filterStarships(userInput).then((data) => setStarships(data.results));
+        filterStarships(searchInput).then((data) => setStarships(data.results));
     };
     return (
-        <>
-            <div>
+        <div className="starships-component">
+            <div className="filter-section">
                 <span>Name / Model</span>
                 <input
                     id="name-model-input"
                     type="text"
                     placeholder="Name / Model"
+                    value={searchInput}
+                    onChange={(event) => setSearchInput(event.target.value)}
                 />
                 <button onClick={handleFilter}> Filter Starships</button>
             </div>
@@ -45,21 +46,36 @@ const Starships = ({ setSelectedStarship }) => {
                 })}
                 ;
             </div>
-            <button
-                onClick={() => {
-                    setPage((prev) => prev - 1);
-                }}
-            >
-                See previous page
-            </button>
-            <button
-                onClick={() => {
-                    setPage((prev) => prev + 1);
-                }}
-            >
-                See next page
-            </button>
-        </>
+
+            <div className="starships-buttons">
+                <button
+                    onClick={() => {
+                        setPage((prev) => {
+                            if (prev === 1) {
+                                return 4;
+                            }
+
+                            return prev - 1;
+                        });
+                    }}
+                >
+                    See previous page
+                </button>
+                <button
+                    onClick={() => {
+                        setPage((prev) => {
+                            if (prev === 4) {
+                                return 1;
+                            }
+
+                            return prev + 1;
+                        });
+                    }}
+                >
+                    See next page
+                </button>
+            </div>
+        </div>
     );
 };
 
