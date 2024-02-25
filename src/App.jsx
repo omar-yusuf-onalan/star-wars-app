@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AllStarships from "./Pages/AllStarships";
 import SingleStarship from "./Pages/SingleStarship";
 
