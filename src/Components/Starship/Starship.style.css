@@ -1,4 +1,18 @@
+.starship-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px
+}
+
 .single-starship {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
     width: 300px;
-    height: 400px
+    height: 300px
 }
